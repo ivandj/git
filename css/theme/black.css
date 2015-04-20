@@ -82,7 +82,9 @@ body {
   margin: 0 0 0 1em; }
 
 .reveal ol {
-  list-style-type: decimal; }
+  list-style-type: decimal; 
+  white-space: nowrap;
+}
 
 .reveal ul {
   list-style-type: disc; }
@@ -141,10 +143,13 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 500px;
   word-wrap: normal;
   background: #3F3F3F;
-  color: #DCDCDC; }
+  color: #DCDCDC; 
+  font-size: 1.2EM;
+  LINE-HEIGHT: 30PX;
+}
 
 .reveal table {
   margin: auto;

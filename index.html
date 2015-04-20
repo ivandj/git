@@ -91,13 +91,15 @@
 				</section>
 
 				<section id="svn-workflow">
-					<h1>SVN Workflow</h1>
-					<p><img border="0" src="img/svn.svg"></p>
-				</section>
+					<section>
+						<h1>SVN Workflow</h1>
+						<p><img border="0" src="img/svn.svg"></p>
+					</section>
+					<section>
+						<h1>SVN Workflow</h1>
+	                    <pre><code data-trim contenteditable>
+#!/bin/bash
 
-				<section id="svn-workflow-cli">
-					<h1>SVN Workflow</h1>
-                    <pre><code data-trim contenteditable>
 # Add a new file
 $ svn add %filename%
 
@@ -108,17 +110,21 @@ $ svn checkout
 
 # Commit to Repo
 $ svn commit -m "changes"
-                    </code></pre>
+	                    </code></pre>
+					</section>
+
 				</section>
 
 				<section id="git-workflow">
-					<h1>GIT Workflow</h1>
-					<p><img border="0" src="img/git.svg"></p>
-				</section>
+					<section>
+						<h1>GIT Workflow</h1>
+						<p><img border="0" src="img/git.svg"></p>
+					</section>
+					<section>
+						<h1>GIT Workflow</h1>
+	                    <pre><code data-trim contenteditable>
+#!/bin/bash
 
-				<section id="git-workflow-cli">
-					<h1>GIT Workflow</h1>
-                    <pre><code data-trim contenteditable>
 # Add to staging / New File
 $ git add /filename/
 
@@ -132,7 +138,9 @@ $ git pull origin
 
 # Push to Remote Repo
 $ git push -u origin /branch/
-                    </code></pre>
+	                    </code></pre>
+					</section>
+
 				</section>
 
 				<section id="svn-git">
@@ -140,8 +148,277 @@ $ git push -u origin /branch/
 					<p><img border="0" src="img/svn-git.svg"></p>
 				</section>
 
+				<section id="clone-repo">
+					<h3>Get Repo from Remote to Local</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+$ svn checkout /url/
+
+# GIT
+$ git clone /url/
+                    	</code></pre>
+				</section>
+
+				<section id="get-latest-from-remote">
+					<h3>Get latest chjanges from Remote to Local</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+$ svn checkout /url/
+
+# GIT
+$ git pull origin /branch/
+                    	</code></pre>
+				</section>
+
+				<section id="add-file">
+					<h3>Add Unversioned File</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+$ svn add /filename/
+
+# GIT
+$ git add /filename/
+
+# GIT add all files
+$ git add .
+	                    </code></pre>
+				</section>
+
+				<section id="add-to-staging">
+					<h3>Add to Staging</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+
+# GIT
+$ git add /filename/
+
+# GIT add all files/folders
+$ git add .
+
+# GIT add all changes/renames/removes
+$ git add . -f
+	                    </code></pre>
+				</section>
+
+				<section id="commit">
+					<h3>Commit</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN commits to Local AND Remote
+$ svn commit -m "changes" /filename/
 
 
+# GIT commit to Local Repo (only)
+$ git commit -m "changes"
+	                    </code></pre>
+				</section>
+
+				<section id="push-to-remote">
+					<h3>Push to Remote Repo</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+
+# GIT
+$ git push -u origin /branch/
+	                    </code></pre>
+				</section>
+
+				<section id="create-branch-svn">
+					<h3>Create Branch SVN</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+$ svn copy /repo-url/trunk /repo-url/branches/new-branch -m "Creating a branch of /trunk."
+$ svn checkout /new-branch-url/
+	                    </code></pre>
+				</section>
+
+				<section id="create-branch-git">
+					<h3>Create Branch GIT</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# GIT branch from current
+$ git checkout -b /new-branch/
+
+# GIT branch empty
+$ git checkout --orphan /new-branch/
+
+# GIT: if you created a branch in your local, you need to push to remote
+$ git push -u origin /new-branch/
+
+# GIT: if you created a branch in your remote, you need to pull to local
+$ git pull origin /new-branch/
+	                    </code></pre>
+				</section>
+
+				<section id="switch-branch">
+					<h3>Switch Branch</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+$ svn checkout /new-branch-url/
+
+# GIT
+$ git checkout /new-branch/
+	                    </code></pre>
+				</section>
+
+				<section id="merge-branch">
+					<h3>Merge Branch</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN
+$ svn merge /master-branch-url/
+
+# GIT merge branch1 to master
+$ git checkout branch1
+
+# make changes, commit to branch1
+
+# GIT switch to master
+$ git checkout master
+
+# merge
+$ git merge branch1
+	                    </code></pre>
+				</section>
+
+				<section id="rename">
+					<h3>Rename File/Folder</h3>
+					<p>Use the <strong>FORCE</strong> wisely!</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN - go to Repo Browser
+# Rename the file
+# Checkout
+
+# GIT - rename file in local, commit, push
+$ git add -f /filename/
+$ git commit -m "I have renamed da file"
+	                    </code></pre>
+				</section>
+
+				<section id="remove">
+					<h3>Rename File/Folder</h3>
+					<p>Use the <strong>FORCE</strong> wisely!</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# SVN - go to Repo Browser
+# Remove the file
+# Checkout
+
+# GIT - remove file in local, commit, push
+$ git add -f /filename/
+$ git commit -m "I have removed da file"
+	                    </code></pre>
+				</section>
+
+				<section id="best-practice-status">
+					<h3>Git status CLI</h3>
+					<ul>
+						<li>Your new best friend</li>
+						<li>Where are your files?</li>
+						<li>What's going on?</li>
+					</ul>
+				</section>
+
+				<section id="best-practice-folders">
+					<h3>Best Practice - Folders</h3>
+					<ul>
+						<li>db</li>
+						<li>docs
+							<ul>
+								<li>sprints/stories</li>
+								<li>release notes</li>
+							</ul>
+						</li>
+						<li>front-end</li>
+						<li>back-end</li>
+						<li>test</li>
+					</ul>
+				</section>
+
+				<section id="best-practice-branches">
+					<h3>Best Practice - Branches - Features</h3>
+					<ul>
+						<li>deploy-dev</li>
+						<li>deploy-st</li>
+						<li>deploy-at</li>
+						<li>deploy-live</li>
+						<li>s1-st01-f01-name</li>
+						<li>s1-st01-f02-name</li>
+						<li>s1-st02-f01-name</li>
+						<li>s2-st01-f01-name</li>
+						<li>s2-st01-f02-name</li>
+					</ul>
+				</section>
+
+				<section id="best-practice-deploy">
+					<h3>Best Practice - Deployment</h3>
+					<p>1 Commit 1 Release</p>
+					<ul>
+						<li>deploy-dev</li>
+						<li>deploy-st</li>
+						<li>deploy-at</li>
+						<li>deploy-live</li>
+					</ul>
+					<p>CI hook to Branch Commit</p>
+				</section>
+
+				<section id="common-mistakes">
+					<h3>Common Mistakes</h3>
+					<p>SVN: checkout before commit</p>
+					<p>GIT: pull origin before commit/push</p>
+				</section>
+
+				<section id="conflicts">
+					<h3>Conflicts</h3>
+					<ol>
+						<li>Make a copy of YOUR FILES</li>
+						<li>CLONE Fresh copy from remote</li>
+						<li>APPLY your changes</li>
+						<li>COMMIT && PUSH</li>
+					</ol>
+				</section>
+
+				<section id="shortcut">
+					<h3>Shortcut</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# DO-DA-HARD-WORK
+# Get ready to Commit
+
+$ git pull origin /branch/       # Get Latest
+
+# CHECK CONFLICTS
+
+$ git add . -f                   # Add/Rename/Remove All
+$ git commit -m "changes"        # Commit to Local
+$ git push -u origin /branch/    # Push to Remote
+	                    </code></pre>
+				</section>
+
+				<section id="Q">
+					<h1>Questions?</h1>
+				</section>
 
 			</div>
 
@@ -165,8 +442,6 @@ $ git push -u origin /branch/
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
