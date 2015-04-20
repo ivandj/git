@@ -148,6 +148,25 @@ $ git push -u origin /branch/
 					<p><img border="0" src="img/svn-git.svg"></p>
 				</section>
 
+				<section id="shortcut">
+					<h3>Shortcut</h3>
+	                    <pre><code data-trim>
+#!/bin/bash
+
+# DO-DA-HARD-WORK
+# Get ready to Commit
+
+$ git pull origin /branch/       # Get Latest
+
+# CHECK CONFLICTS
+
+$ git add . -f                   # Add/Rename/Remove All
+$ git commit -m "changes"        # Commit to Local
+$ git push -u origin /branch/    # Push to Remote
+	                    </code></pre>
+				</section>
+
+
 				<section id="clone-repo">
 					<h3>Get Repo from Remote to Local</h3>
 	                    <pre><code data-trim>
@@ -411,24 +430,6 @@ $ git push -u origin /branch/
 						<li>APPLY your changes</li>
 						<li>COMMIT && PUSH</li>
 					</ol>
-				</section>
-
-				<section id="shortcut">
-					<h3>Shortcut</h3>
-	                    <pre><code data-trim>
-#!/bin/bash
-
-# DO-DA-HARD-WORK
-# Get ready to Commit
-
-$ git pull origin /branch/       # Get Latest
-
-# CHECK CONFLICTS
-
-$ git add . -f                   # Add/Rename/Remove All
-$ git commit -m "changes"        # Commit to Local
-$ git push -u origin /branch/    # Push to Remote
-	                    </code></pre>
 				</section>
 
 				<section id="Q">
